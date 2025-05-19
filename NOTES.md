@@ -23,3 +23,38 @@
 
 ## Insecure Registry
 
+> http://localhost:5003/v2/redis/tags/list
+
+press cmd + enter on mac or alter + ente on windows can open a new background tab with what in your address input
+
+> docker registry UI
+
+```
+docker run \
+  -d \
+  -e ENV_DOCKER_REGISTRY_HOST=localhost \
+  -e ENV_DOCKER_REGISTRY_PORT=5003 \
+  -p 8080:80 \
+  konradkleine/docker-registry-frontend:v2
+```
+
+## named volume
+
+> cat ~/.docker/config.json
+
+> "psFormat": "table {{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Names}}"
+
+> docker volume ls
+
+> alias dcpsm='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Mounts}}"'
+
+
+```
+docker run \
+  -d \
+  -e ENV_DOCKER_REGISTRY_HOST=localhost \
+  -e ENV_DOCKER_REGISTRY_PORT=5003 \
+  -p 8080:80 \
+  konradkleine/docker-registry-frontend:v2
+  -v registry-data:/var/lib/registry 
+```
