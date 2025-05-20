@@ -58,3 +58,9 @@ docker run \
   konradkleine/docker-registry-frontend:v2
   -v registry-data:/var/lib/registry 
 ```
+
+## Self-hosting registry
+
+### Registry Mirroring with a Pull-through Cache
+
+
