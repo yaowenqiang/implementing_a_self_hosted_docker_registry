@@ -63,4 +63,7 @@ docker run \
 
 ### Registry Mirroring with a Pull-through Cache
 
+## Automating Builds with Notifications
+
+> git@github.com:g0t4/docker-mongo-sample-datasets.git -b docker-registry
 
