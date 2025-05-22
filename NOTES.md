@@ -67,3 +67,9 @@ docker run \
 
 > git@github.com:g0t4/docker-mongo-sample-datasets.git -b docker-registry
 
+> docker compose up --force-recreate vetted-registry
+
+> https://github.com/distribution/distribution-library-image
+
+> RequestBin
+
