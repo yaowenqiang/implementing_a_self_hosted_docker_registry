@@ -73,3 +73,7 @@ docker run \
 
 > RequestBin
 
+> docker compose exec containername sh
+
+> docker ps -q | xargs -n1 docker port
+
