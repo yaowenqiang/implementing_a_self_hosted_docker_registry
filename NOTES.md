@@ -1,14 +1,16 @@
 # implementing a self-hosted docker registry
 
-> docker run -it --rm -p 5000:5000 --restart always --name registry registry
+> docker network create my-network
 
-> docker run -it --rm -p 5000:5000 --name registry registry
+> docker run -it --rm -p 5000:5000 --restart always --name registry --network my-network registry 
+
+> docker run -it --rm -p 5000:5000 --name registry --network my-network registry 
 
 > http://localhost:5000/v2/_catalog
 
 > Docker Registry HTTP API V2
 
-> docker tag redis localhost:5003/redis:7.0.11-alpine
+> docker tag redis localhost:5000/redis:7.0.11-alpine
 
 [registry:port] repository [tag]
 
@@ -32,10 +34,25 @@ press cmd + enter on mac or alter + ente on windows can open a new background ta
 ```
 docker run \
   -d \
-  -e ENV_DOCKER_REGISTRY_HOST=localhost \
-  -e ENV_DOCKER_REGISTRY_PORT=5003 \
+  -e ENV_DOCKER_REGISTRY_HOST=registry \
+  -e ENV_DOCKER_REGISTRY_PORT=5000 \
   -p 8080:80 \
+  --network my-network \
   konradkleine/docker-registry-frontend:v2
+```
+
+## pull images from other machine
+
+### add insecure-registries
+```
+vim /etc/docker/daemon.json
+
+  "insecure-registries": ["your-registry-ip:port"],
+
+systemctl reload docker
+
+docker pull your-registry-ip:port/redis
+
 ```
 
 ## named volume
@@ -52,16 +69,18 @@ docker run \
 ```
 docker run \
   -d \
-  -e ENV_DOCKER_REGISTRY_HOST=localhost \
-  -e ENV_DOCKER_REGISTRY_PORT=5003 \
-  -p 8080:80 \
-  konradkleine/docker-registry-frontend:v2
-  -v registry-data:/var/lib/registry 
+  -p 5000:5000 \
+  --network my-network \
+  -v registry-data:/var/lib/registry \
+  registry
 ```
 
 ## Self-hosting registry
 
 ### Registry Mirroring with a Pull-through Cache
+
+> REGISTRY_PROXY_REMOTEURL: https://registry-1.docker.io
+
 
 ## Automating Builds with Notifications
 
