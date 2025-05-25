@@ -92,6 +92,12 @@ docker run \
 
 > RequestBin
 
+> docker compose logs --follow vetted-registry | grep --line-buffered -o '{.*}' | jq
+
+> docker compose logs --follow vetted-registry | grep --line-buffered -o '{.*}' | jq -c '{ time, level: .level[0,4], msg }'
+
+> docker compose logs --follow vetted-registry | grep --line-buffered -o '{.*}' | jq -c '{time: .time[0:19], level: .level[0:4], msg}'
+
 > docker compose exec containername sh
 
 > docker ps -q | xargs -n1 docker port
