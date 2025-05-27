@@ -101,4 +101,9 @@ docker run \
 > docker compose exec containername sh
 
 > docker ps -q | xargs -n1 docker port
+> docker compose up --force-recreate vetted-registry
 
+> docker pull busybox
+> docker tag busybox localhost:55000/busybox
+> docker push localhost:55000/busybox
+> docker compose up --force-recreate -V vetted-registry
