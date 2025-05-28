@@ -107,3 +107,18 @@ docker run \
 > docker tag busybox localhost:55000/busybox
 > docker push localhost:55000/busybox
 > docker compose up --force-recreate -V vetted-registry
+
+## Cleaning up Images and Configuring Storage
+
+### inmemory storage
+
+> in-memory storage driver
+
+> storagedriver.go 
+> driver.go
+
+```yml
+environment:
+    REGISTRY_STORAGE: inmemory
+    REGISTRY_LOG_LEVEL: debug
+```
