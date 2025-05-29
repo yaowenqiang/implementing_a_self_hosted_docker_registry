@@ -122,3 +122,17 @@ environment:
     REGISTRY_STORAGE: inmemory
     REGISTRY_LOG_LEVEL: debug
 ```
+
+> watch -n1 -d curl -s localhost:5000/v2_catalog
+
+### delete
+
+```yml
+    delete: 
+        enabled: true
+```
+
+> registry --help
+> registry garbage-collect --dry-run
+
+
