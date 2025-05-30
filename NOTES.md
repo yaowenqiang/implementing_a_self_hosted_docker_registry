@@ -135,4 +135,27 @@ environment:
 > registry --help
 > registry garbage-collect --dry-run
 
+> Containers and Images: The Big Picture
+
+> apk add --nocache file
+
+> tar -tf data
+
+### garbage collection
+
+> registry --help
+> registry help garbage-collect
+
+> registry garbage-collect --dry-run /etc/docker/registry/config.yml
+
+```yml
+maintaince:
+    readonly:
+        enabled: true
+
+
+```
+
+
+
 
