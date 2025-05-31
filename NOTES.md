@@ -156,6 +156,26 @@ maintaince:
 
 ```
 
+## security in registry 
+
+### Basic auth
+
+> htpasswd
+> https://docs.docker.com/registry/configuration/#htpasswd
+
+> https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/WWW-Authenticate
+
+> htpasswd -bnB admin admin > /auth/htpasswd
+
+> curl  -u admin:admin localhost:5001/v2/_catalog
+
+> xh  -a admin:admin localhost:5001/v2/_catalog
+
+> docker login localhost:5001
+
+
+
+
 
 
 
