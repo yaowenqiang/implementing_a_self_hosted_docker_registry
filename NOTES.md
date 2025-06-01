@@ -173,6 +173,29 @@ maintaince:
 
 > docker login localhost:5001
 
+Auth type
+
++ Basic Auth
++ Oauth
++ anonymous Auth
+
+### Silly Auth
+### Recipe
+
+### TLS
+
+> curl -k  https://localhost/v2/_catalog
+
+> docker cp
+
+> sudo security add-trusted-cert -d -k /path/toselfsigne.crt # for mac
+
+> restart docker
+
+
+
+
+
 
 
 
