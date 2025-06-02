@@ -192,6 +192,11 @@ Auth type
 
 > restart docker
 
+### docker notary
+
+> https://docs.docker.com/engine/security/trust/
+
+> https://github.com/quay/clair
 
 
 
